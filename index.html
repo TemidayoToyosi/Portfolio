@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temidayo Toyosi Ezekiel | Front-End Developer</title>
+<meta name="description" content="Front-end developer and research and technical documentation specialist based in Lagos, Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a href="#top" class="brand">Temidayo Toyosi Ezekiel</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      {% if resume_exists %}<li><a class="btn" href="/resume">Download Resume</a></li>{% endif %}
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="about">
+    <div class="wrap hero-layout">
+      <div class="portrait-frame">
+        {% if profile_image %}
+        <img class="profile-picture" src="{{ profile_image }}" alt="Portrait of Temidayo Toyosi Ezekiel">
+        {% else %}
+        <div class="profile-picture profile-placeholder" role="img" aria-label="Profile picture placeholder">TE</div>
+        {% endif %}
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1><span>Temidayo Toyosi Ezekiel</span></h1>
+        <p class="role">Front-End Developer | Research &amp; Technical Documentation Specialist</p>
+        <p>I am a motivated and detail-oriented Computer Science graduate based in Lagos, Nigeria, with a strong foundation in front-end web development, research, and technical documentation. I specialize in building responsive, accessible, and user-friendly web interfaces using HTML, CSS, and JavaScript, backed by hands-on experience through academic projects, independent learning, and continuous development. Beyond coding, my background spans technical support, client communication, and structured report writing, allowing me to approach digital problems analytically and deliver well-documented, effective solutions.</p>
+        <div class="actions">
+          <a class="btn" href="#projects">View My Projects</a>
+          <a class="btn ghost" href="#contact">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Core skills and technical proficiency</h2>
+      <div class="grid skills-grid">
+        <article class="card skill-card">
+          <h3>Web technologies and dev tools</h3>
+          <ul class="tags">
+            <li>HTML5</li><li>CSS3</li><li>JavaScript (ES6+)</li><li>Python</li><li>Flask</li><li>SQLite</li><li>Git / GitHub</li><li>Responsive web design</li><li>UI development</li><li>Debugging</li>
+          </ul>
+        </article>
+        <article class="card skill-card">
+          <h3>Research and documentation</h3>
+          <ul class="tags">
+            <li>Online research</li><li>Technical and business documentation</li><li>Information gathering and analysis</li><li>AI-assisted research tools</li>
+          </ul>
+        </article>
+        <article class="card skill-card">
+          <h3>Operations and support</h3>
+          <ul class="tags">
+            <li>Customer service and client relations</li><li>Technical support</li><li>Data entry and administration</li><li>Digital collaboration tools</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Professional experience</h2>
+      <ol class="timeline">
+        <li>
+          <h3>Sales Representative</h3>
+          <p class="org">Adbound Homes Limited</p>
+          <p class="when">July 2026 – Present</p>
+        </li>
+        <li>
+          <h3>Sales &amp; Client Communication Specialist</h3>
+          <p class="org">NextGear Autos</p>
+          <p class="when">March 2026 – April 2026</p>
+        </li>
+        <li>
+          <h3>CBT Administrator / Support Staff</h3>
+          <p class="org">LASU CBT Centre</p>
+          <p class="when">Jan 2025 – Apr 2025; Jan 2026 – Apr 2026</p>
+        </li>
+        <li>
+          <h3>Support &amp; Operations Specialist</h3>
+          <p class="org">BSMS UK</p>
+          <p class="when">April 2025 – October 2025</p>
+        </li>
+        <li>
+          <h3>Front-End Developer</h3>
+          <p class="org">Remote / Project-Based</p>
+          <p class="when">Ongoing</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Featured projects</h2>
+      <div class="grid">
+        {% for project in projects %}
+        <article class="card">
+          <p class="meta">{{ project.category }}</p>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          {% if project.link %}<a class="project-link" href="{{ project.link }}" target="_blank" rel="noopener noreferrer">View project</a>{% endif %}
+        </article>
+        {% endfor %}
+        {% if not projects %}<p>Projects will be added soon.</p>{% endif %}
+        <!--
+        <article class="card">
+          <p class="meta">Lagos State University, 2026</p>
+          <h3>Computer Science Final Year Web System</h3>
+          <p>A web-based application built with HTML, CSS, JavaScript, Python and Flask. It has a responsive interface, supported by full system documentation and research.</p>
+        </article>
+        <article class="card">
+          <p class="meta">HTML · CSS · JavaScript</p>
+          <h3>Responsive Front-End Web Applications</h3>
+          <p>Modular web components translated from design specs, with attention to UI layout, cross-device responsiveness and accessibility.</p>
+        </article>
+        <article class="card">
+          <p class="meta">Research and documentation</p>
+          <h3>Technical &amp; Business Research Reports</h3>
+          <p>Structured research, analytical reporting and technical documentation prepared for complex web systems and operational needs.</p>
+        </article>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education and certifications</h2>
+      <div class="edu">
+        <article class="card">
+          <h3>B.Sc. in Computer Science</h3>
+          <p>Lagos State University (LASU), 2026</p>
+        </article>
+        <article class="card">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Introduction to Front-End Development (Coursera)</li>
+            <li>Web Development (Udemy)</li>
+            <li>Hands-on Web Development Practical Training</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Let's work together</h2>
+      <div class="contact">
+        <div>
+          <ul class="info">
+            <li><span>Location</span>Lagos, Nigeria</li>
+            <li><span>Phone</span><a href="tel:+2347044666682">+234 704 466 6682</a> / <a href="tel:+2348136856440">+234 813 685 6440</a></li>
+            <li><span>Email</span><a href="mailto:temidayoeze98@gmail.com">temidayoeze98@gmail.com</a></li>
+          </ul>
+          <div class="social">
+            <a class="btn ghost" href="https://github.com/TemidayoToyosi" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/toyosi-temidayo-007311271" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <form id="form" method="post" action="/api/contact">
+          <label>Name<input id="name" name="name" required autocomplete="name"></label>
+          <label>Email<input id="email" name="email" type="email" required autocomplete="email"></label>
+          <label>Message<textarea id="message" name="message" required></textarea></label>
+          <button class="btn" type="submit">Send message</button>
+          <p id="status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Temidayo Toyosi Ezekiel. Lagos, Nigeria.</div>
+</footer>
+
+<script src="/static/js/main.js" defer></script>
+</body>
+</html>
